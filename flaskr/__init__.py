@@ -25,11 +25,16 @@ def createApp(test_config=None):
         pass
     
     # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return "Hello, world!"
+    # @app.route('/hello')
+    # def hello():
+    #     return "Hello, world!"
     
+    # import database
     from . import db
     db.initApp(app)
+    
+    # import and register auth blueprint
+    from . import auth
+    app.register_blueprint(auth.bp)
     
     return app
