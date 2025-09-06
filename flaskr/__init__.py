@@ -29,4 +29,7 @@ def createApp(test_config=None):
     def hello():
         return "Hello, world!"
     
+    from . import db
+    db.initApp(app)
+    
     return app
